@@ -1,0 +1,15 @@
+<h1>Ajouter un signet à <%= @list.name %></h1>
+
+<%= form_with model: [@list, @bookmark], local: true do |f| %>
+  <div>
+    <%= f.label :movie_id, "Choisissez un film" %>
+    <%= f.collection_select :movie_id, Movie.all, :id, :title, prompt: "Choisissez un film" %>
+  </div>
+  <div>
+    <%= f.label :comment, "Commentaire" %>
+    <%= f.text_area :comment %>
+  </div>
+  <div>
+    <%= f.submit "Ajouter le signet" %>
+  </div>
+<% end %>
